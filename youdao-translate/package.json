@@ -3,14 +3,15 @@
   "name": "youdao-translate",
   "title": "YouDao Translate",
   "description": "youdao translate",
-  "icon": "command-icon.png",
+  "icon": "translate.png",
   "author": "si9ma",
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "Show Typeahead Results",
-      "description": "Template for showing typeahead search with network results.",
+      "name": "youdao_translate",
+      "title": "Translate",
+      "subtitle": "Youdao",
+      "description": "Youdao translate.",
       "mode": "view"
     }
   ],

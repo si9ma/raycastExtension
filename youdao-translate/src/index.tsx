@@ -6,8 +6,6 @@ import {
   getPreferenceValues,
   OpenInBrowserAction,
   CopyToClipboardAction,
-  useNavigation,
-  Detail,
   Icon,
   Color,
 } from "@raycast/api";
@@ -163,7 +161,7 @@ function generateSign(content: string, salt: number, app_key: string, app_secret
 async function translateAPI(content: string, signal: AbortSignal): Promise<translateResult> {
   if (content === "") {
     // set default query to hello world
-    content = "hello world"
+    content = "hello world";
   }
 
   const { app_key, app_secret, from_lang, to_lang } = getPreferenceValues();
