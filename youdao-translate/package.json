@@ -1,0 +1,972 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "youdao-translate",
+  "title": "YouDao Translate",
+  "description": "youdao translate",
+  "icon": "command-icon.png",
+  "author": "si9ma",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Show Typeahead Results",
+      "description": "Template for showing typeahead search with network results.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "app_key",
+      "type": "textfield",
+      "required": true,
+      "title": "APP Key",
+      "description": "You can get Youdao Translate APP code at https://ai.youdao.com/console/",
+      "placeholder": "Youdao Translate APP code"
+    },
+    {
+      "name": "app_secret",
+      "type": "password",
+      "required": true,
+      "title": "APP Secret",
+      "description": "You can get Youdao Translate APP secret at https://ai.youdao.com/console/",
+      "placeholder": "Youdao Translate APP Secret"
+    },
+    {
+      "name": "from_lang",
+      "type": "dropdown",
+      "required": true,
+      "title": "First Language",
+      "description": "First language",
+      "default": "auto",
+      "data": [
+        {
+          "title": "中文",
+          "value": "zh-CHS"
+        },
+        {
+          "title": "英文",
+          "value": "en"
+        },
+        {
+          "title": "日文",
+          "value": "ja"
+        },
+        {
+          "title": "韩文",
+          "value": "ko"
+        },
+        {
+          "title": "法文",
+          "value": "fr"
+        },
+        {
+          "title": "西班牙文",
+          "value": "es"
+        },
+        {
+          "title": "葡萄牙文",
+          "value": "pt"
+        },
+        {
+          "title": "意大利文",
+          "value": "it"
+        },
+        {
+          "title": "俄文",
+          "value": "ru"
+        },
+        {
+          "title": "越南文",
+          "value": "vi"
+        },
+        {
+          "title": "德文",
+          "value": "de"
+        },
+        {
+          "title": "阿拉伯文",
+          "value": "ar"
+        },
+        {
+          "title": "印尼文",
+          "value": "id"
+        },
+        {
+          "title": "南非荷兰语",
+          "value": "af"
+        },
+        {
+          "title": "波斯尼亚语",
+          "value": "bs"
+        },
+        {
+          "title": "保加利亚语",
+          "value": "bg"
+        },
+        {
+          "title": "粤语",
+          "value": "yue"
+        },
+        {
+          "title": "加泰隆语",
+          "value": "ca"
+        },
+        {
+          "title": "克罗地亚语",
+          "value": "hr"
+        },
+        {
+          "title": "捷克语",
+          "value": "cs"
+        },
+        {
+          "title": "丹麦语",
+          "value": "da"
+        },
+        {
+          "title": "荷兰语",
+          "value": "nl"
+        },
+        {
+          "title": "爱沙尼亚语",
+          "value": "et"
+        },
+        {
+          "title": "斐济语",
+          "value": "fj"
+        },
+        {
+          "title": "芬兰语",
+          "value": "fi"
+        },
+        {
+          "title": "希腊语",
+          "value": "el"
+        },
+        {
+          "title": "海地克里奥尔语",
+          "value": "ht"
+        },
+        {
+          "title": "希伯来语",
+          "value": "he"
+        },
+        {
+          "title": "印地语",
+          "value": "hi"
+        },
+        {
+          "title": "白苗语",
+          "value": "mww"
+        },
+        {
+          "title": "匈牙利语",
+          "value": "hu"
+        },
+        {
+          "title": "斯瓦希里语",
+          "value": "sw"
+        },
+        {
+          "title": "克林贡语",
+          "value": "tlh"
+        },
+        {
+          "title": "拉脱维亚语",
+          "value": "lv"
+        },
+        {
+          "title": "立陶宛语",
+          "value": "lt"
+        },
+        {
+          "title": "马来语",
+          "value": "ms"
+        },
+        {
+          "title": "马耳他语",
+          "value": "mt"
+        },
+        {
+          "title": "挪威语",
+          "value": "no"
+        },
+        {
+          "title": "波斯语",
+          "value": "fa"
+        },
+        {
+          "title": "波兰语",
+          "value": "pl"
+        },
+        {
+          "title": "克雷塔罗奥托米语",
+          "value": "otq"
+        },
+        {
+          "title": "罗马尼亚语",
+          "value": "ro"
+        },
+        {
+          "title": "塞尔维亚语(西里尔文)",
+          "value": "sr-Cyrl"
+        },
+        {
+          "title": "塞尔维亚语(拉丁文)",
+          "value": "sr-Latn"
+        },
+        {
+          "title": "斯洛伐克语",
+          "value": "sk"
+        },
+        {
+          "title": "斯洛文尼亚语",
+          "value": "sl"
+        },
+        {
+          "title": "瑞典语",
+          "value": "sv"
+        },
+        {
+          "title": "塔希提语",
+          "value": "ty"
+        },
+        {
+          "title": "泰语",
+          "value": "th"
+        },
+        {
+          "title": "汤加语",
+          "value": "to"
+        },
+        {
+          "title": "土耳其语",
+          "value": "tr"
+        },
+        {
+          "title": "乌克兰语",
+          "value": "uk"
+        },
+        {
+          "title": "乌尔都语",
+          "value": "ur"
+        },
+        {
+          "title": "威尔士语",
+          "value": "cy"
+        },
+        {
+          "title": "尤卡坦玛雅语",
+          "value": "yua"
+        },
+        {
+          "title": "阿尔巴尼亚语",
+          "value": "sq"
+        },
+        {
+          "title": "阿姆哈拉语",
+          "value": "am"
+        },
+        {
+          "title": "亚美尼亚语",
+          "value": "hy"
+        },
+        {
+          "title": "阿塞拜疆语",
+          "value": "az"
+        },
+        {
+          "title": "孟加拉语",
+          "value": "bn"
+        },
+        {
+          "title": "巴斯克语",
+          "value": "eu"
+        },
+        {
+          "title": "白俄罗斯语",
+          "value": "be"
+        },
+        {
+          "title": "宿务语",
+          "value": "ceb"
+        },
+        {
+          "title": "科西嘉语",
+          "value": "co"
+        },
+        {
+          "title": "世界语",
+          "value": "eo"
+        },
+        {
+          "title": "菲律宾语",
+          "value": "tl"
+        },
+        {
+          "title": "弗里西语",
+          "value": "fy"
+        },
+        {
+          "title": "加利西亚语",
+          "value": "gl"
+        },
+        {
+          "title": "格鲁吉亚语",
+          "value": "ka"
+        },
+        {
+          "title": "古吉拉特语",
+          "value": "gu"
+        },
+        {
+          "title": "豪萨语",
+          "value": "ha"
+        },
+        {
+          "title": "夏威夷语",
+          "value": "haw"
+        },
+        {
+          "title": "冰岛语",
+          "value": "is"
+        },
+        {
+          "title": "伊博语",
+          "value": "ig"
+        },
+        {
+          "title": "爱尔兰语",
+          "value": "ga"
+        },
+        {
+          "title": "爪哇语",
+          "value": "jw"
+        },
+        {
+          "title": "卡纳达语",
+          "value": "kn"
+        },
+        {
+          "title": "哈萨克语",
+          "value": "kk"
+        },
+        {
+          "title": "高棉语",
+          "value": "km"
+        },
+        {
+          "title": "库尔德语",
+          "value": "ku"
+        },
+        {
+          "title": "柯尔克孜语",
+          "value": "ky"
+        },
+        {
+          "title": "老挝语",
+          "value": "lo"
+        },
+        {
+          "title": "拉丁语",
+          "value": "la"
+        },
+        {
+          "title": "卢森堡语",
+          "value": "lb"
+        },
+        {
+          "title": "马其顿语",
+          "value": "mk"
+        },
+        {
+          "title": "马尔加什语",
+          "value": "mg"
+        },
+        {
+          "title": "马拉雅拉姆语",
+          "value": "ml"
+        },
+        {
+          "title": "毛利语",
+          "value": "mi"
+        },
+        {
+          "title": "马拉地语",
+          "value": "mr"
+        },
+        {
+          "title": "蒙古语",
+          "value": "mn"
+        },
+        {
+          "title": "缅甸语",
+          "value": "my"
+        },
+        {
+          "title": "尼泊尔语",
+          "value": "ne"
+        },
+        {
+          "title": "齐切瓦语",
+          "value": "ny"
+        },
+        {
+          "title": "普什图语",
+          "value": "ps"
+        },
+        {
+          "title": "旁遮普语",
+          "value": "pa"
+        },
+        {
+          "title": "萨摩亚语",
+          "value": "sm"
+        },
+        {
+          "title": "苏格兰盖尔语",
+          "value": "gd"
+        },
+        {
+          "title": "塞索托语",
+          "value": "st"
+        },
+        {
+          "title": "修纳语",
+          "value": "sn"
+        },
+        {
+          "title": "信德语",
+          "value": "sd"
+        },
+        {
+          "title": "僧伽罗语",
+          "value": "si"
+        },
+        {
+          "title": "索马里语",
+          "value": "so"
+        },
+        {
+          "title": "巽他语",
+          "value": "su"
+        },
+        {
+          "title": "塔吉克语",
+          "value": "tg"
+        },
+        {
+          "title": "泰米尔语",
+          "value": "ta"
+        },
+        {
+          "title": "泰卢固语",
+          "value": "te"
+        },
+        {
+          "title": "乌兹别克语",
+          "value": "uz"
+        },
+        {
+          "title": "南非科萨语",
+          "value": "xh"
+        },
+        {
+          "title": "意第绪语",
+          "value": "yi"
+        },
+        {
+          "title": "约鲁巴语",
+          "value": "yo"
+        },
+        {
+          "title": "南非祖鲁语",
+          "value": "zu"
+        },
+        {
+          "title": "自动识别",
+          "value": "auto"
+        }
+      ]
+    },
+    {
+      "name": "to_lang",
+      "type": "dropdown",
+      "required": true,
+      "title": "Second Language",
+      "description": "Second language",
+      "default": "auto",
+      "data": [
+        {
+          "title": "中文",
+          "value": "zh-CHS"
+        },
+        {
+          "title": "英文",
+          "value": "en"
+        },
+        {
+          "title": "日文",
+          "value": "ja"
+        },
+        {
+          "title": "韩文",
+          "value": "ko"
+        },
+        {
+          "title": "法文",
+          "value": "fr"
+        },
+        {
+          "title": "西班牙文",
+          "value": "es"
+        },
+        {
+          "title": "葡萄牙文",
+          "value": "pt"
+        },
+        {
+          "title": "意大利文",
+          "value": "it"
+        },
+        {
+          "title": "俄文",
+          "value": "ru"
+        },
+        {
+          "title": "越南文",
+          "value": "vi"
+        },
+        {
+          "title": "德文",
+          "value": "de"
+        },
+        {
+          "title": "阿拉伯文",
+          "value": "ar"
+        },
+        {
+          "title": "印尼文",
+          "value": "id"
+        },
+        {
+          "title": "南非荷兰语",
+          "value": "af"
+        },
+        {
+          "title": "波斯尼亚语",
+          "value": "bs"
+        },
+        {
+          "title": "保加利亚语",
+          "value": "bg"
+        },
+        {
+          "title": "粤语",
+          "value": "yue"
+        },
+        {
+          "title": "加泰隆语",
+          "value": "ca"
+        },
+        {
+          "title": "克罗地亚语",
+          "value": "hr"
+        },
+        {
+          "title": "捷克语",
+          "value": "cs"
+        },
+        {
+          "title": "丹麦语",
+          "value": "da"
+        },
+        {
+          "title": "荷兰语",
+          "value": "nl"
+        },
+        {
+          "title": "爱沙尼亚语",
+          "value": "et"
+        },
+        {
+          "title": "斐济语",
+          "value": "fj"
+        },
+        {
+          "title": "芬兰语",
+          "value": "fi"
+        },
+        {
+          "title": "希腊语",
+          "value": "el"
+        },
+        {
+          "title": "海地克里奥尔语",
+          "value": "ht"
+        },
+        {
+          "title": "希伯来语",
+          "value": "he"
+        },
+        {
+          "title": "印地语",
+          "value": "hi"
+        },
+        {
+          "title": "白苗语",
+          "value": "mww"
+        },
+        {
+          "title": "匈牙利语",
+          "value": "hu"
+        },
+        {
+          "title": "斯瓦希里语",
+          "value": "sw"
+        },
+        {
+          "title": "克林贡语",
+          "value": "tlh"
+        },
+        {
+          "title": "拉脱维亚语",
+          "value": "lv"
+        },
+        {
+          "title": "立陶宛语",
+          "value": "lt"
+        },
+        {
+          "title": "马来语",
+          "value": "ms"
+        },
+        {
+          "title": "马耳他语",
+          "value": "mt"
+        },
+        {
+          "title": "挪威语",
+          "value": "no"
+        },
+        {
+          "title": "波斯语",
+          "value": "fa"
+        },
+        {
+          "title": "波兰语",
+          "value": "pl"
+        },
+        {
+          "title": "克雷塔罗奥托米语",
+          "value": "otq"
+        },
+        {
+          "title": "罗马尼亚语",
+          "value": "ro"
+        },
+        {
+          "title": "塞尔维亚语(西里尔文)",
+          "value": "sr-Cyrl"
+        },
+        {
+          "title": "塞尔维亚语(拉丁文)",
+          "value": "sr-Latn"
+        },
+        {
+          "title": "斯洛伐克语",
+          "value": "sk"
+        },
+        {
+          "title": "斯洛文尼亚语",
+          "value": "sl"
+        },
+        {
+          "title": "瑞典语",
+          "value": "sv"
+        },
+        {
+          "title": "塔希提语",
+          "value": "ty"
+        },
+        {
+          "title": "泰语",
+          "value": "th"
+        },
+        {
+          "title": "汤加语",
+          "value": "to"
+        },
+        {
+          "title": "土耳其语",
+          "value": "tr"
+        },
+        {
+          "title": "乌克兰语",
+          "value": "uk"
+        },
+        {
+          "title": "乌尔都语",
+          "value": "ur"
+        },
+        {
+          "title": "威尔士语",
+          "value": "cy"
+        },
+        {
+          "title": "尤卡坦玛雅语",
+          "value": "yua"
+        },
+        {
+          "title": "阿尔巴尼亚语",
+          "value": "sq"
+        },
+        {
+          "title": "阿姆哈拉语",
+          "value": "am"
+        },
+        {
+          "title": "亚美尼亚语",
+          "value": "hy"
+        },
+        {
+          "title": "阿塞拜疆语",
+          "value": "az"
+        },
+        {
+          "title": "孟加拉语",
+          "value": "bn"
+        },
+        {
+          "title": "巴斯克语",
+          "value": "eu"
+        },
+        {
+          "title": "白俄罗斯语",
+          "value": "be"
+        },
+        {
+          "title": "宿务语",
+          "value": "ceb"
+        },
+        {
+          "title": "科西嘉语",
+          "value": "co"
+        },
+        {
+          "title": "世界语",
+          "value": "eo"
+        },
+        {
+          "title": "菲律宾语",
+          "value": "tl"
+        },
+        {
+          "title": "弗里西语",
+          "value": "fy"
+        },
+        {
+          "title": "加利西亚语",
+          "value": "gl"
+        },
+        {
+          "title": "格鲁吉亚语",
+          "value": "ka"
+        },
+        {
+          "title": "古吉拉特语",
+          "value": "gu"
+        },
+        {
+          "title": "豪萨语",
+          "value": "ha"
+        },
+        {
+          "title": "夏威夷语",
+          "value": "haw"
+        },
+        {
+          "title": "冰岛语",
+          "value": "is"
+        },
+        {
+          "title": "伊博语",
+          "value": "ig"
+        },
+        {
+          "title": "爱尔兰语",
+          "value": "ga"
+        },
+        {
+          "title": "爪哇语",
+          "value": "jw"
+        },
+        {
+          "title": "卡纳达语",
+          "value": "kn"
+        },
+        {
+          "title": "哈萨克语",
+          "value": "kk"
+        },
+        {
+          "title": "高棉语",
+          "value": "km"
+        },
+        {
+          "title": "库尔德语",
+          "value": "ku"
+        },
+        {
+          "title": "柯尔克孜语",
+          "value": "ky"
+        },
+        {
+          "title": "老挝语",
+          "value": "lo"
+        },
+        {
+          "title": "拉丁语",
+          "value": "la"
+        },
+        {
+          "title": "卢森堡语",
+          "value": "lb"
+        },
+        {
+          "title": "马其顿语",
+          "value": "mk"
+        },
+        {
+          "title": "马尔加什语",
+          "value": "mg"
+        },
+        {
+          "title": "马拉雅拉姆语",
+          "value": "ml"
+        },
+        {
+          "title": "毛利语",
+          "value": "mi"
+        },
+        {
+          "title": "马拉地语",
+          "value": "mr"
+        },
+        {
+          "title": "蒙古语",
+          "value": "mn"
+        },
+        {
+          "title": "缅甸语",
+          "value": "my"
+        },
+        {
+          "title": "尼泊尔语",
+          "value": "ne"
+        },
+        {
+          "title": "齐切瓦语",
+          "value": "ny"
+        },
+        {
+          "title": "普什图语",
+          "value": "ps"
+        },
+        {
+          "title": "旁遮普语",
+          "value": "pa"
+        },
+        {
+          "title": "萨摩亚语",
+          "value": "sm"
+        },
+        {
+          "title": "苏格兰盖尔语",
+          "value": "gd"
+        },
+        {
+          "title": "塞索托语",
+          "value": "st"
+        },
+        {
+          "title": "修纳语",
+          "value": "sn"
+        },
+        {
+          "title": "信德语",
+          "value": "sd"
+        },
+        {
+          "title": "僧伽罗语",
+          "value": "si"
+        },
+        {
+          "title": "索马里语",
+          "value": "so"
+        },
+        {
+          "title": "巽他语",
+          "value": "su"
+        },
+        {
+          "title": "塔吉克语",
+          "value": "tg"
+        },
+        {
+          "title": "泰米尔语",
+          "value": "ta"
+        },
+        {
+          "title": "泰卢固语",
+          "value": "te"
+        },
+        {
+          "title": "乌兹别克语",
+          "value": "uz"
+        },
+        {
+          "title": "南非科萨语",
+          "value": "xh"
+        },
+        {
+          "title": "意第绪语",
+          "value": "yi"
+        },
+        {
+          "title": "约鲁巴语",
+          "value": "yo"
+        },
+        {
+          "title": "南非祖鲁语",
+          "value": "zu"
+        },
+        {
+          "title": "自动识别",
+          "value": "auto"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.28.0",
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "~16.10.0",
+    "@types/react": "^17.0.28",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "react-devtools": "^4.19.2",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint"
+  }
+}
