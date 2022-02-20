@@ -8,7 +8,7 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "youdao_translate",
+      "name": "youdao-translate",
       "title": "Translate",
       "subtitle": "Youdao",
       "description": "Youdao translate.",
